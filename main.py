@@ -10,7 +10,7 @@ def load_data():
 
     # First row in data it is row names
     # Delete this row in order to convenient data analyzing
-    # Remember this in parameter_names variable
+    # Remember this row in parameter_names variable
     parameter_names = data[0].copy()
     del data[0]
 

@@ -8,11 +8,14 @@ def load_data():
     with open('fns_for_model.csv', newline='\n') as csvfile:
         data = list(csv.reader(csvfile, delimiter=';'))
 
-     # First row in data
+    # First row in data it is row names
+    # Delete this row in order to convenient data analyzing
+    # Remember this in parameter_names variable
     parameter_names = data[0].copy()
     del data[0]
 
     # Data processing
+    # Transpose data in order to convenient data analyzing
     data = np.array(data, dtype=float)
     data = data.transpose()
 
@@ -26,5 +29,7 @@ def get_mean_variance(data, parameter_names, parameter_number):
 
 if __name__ == '__main__':
     data, parameter_names = load_data()
+
+    # print mean and variance for all data parameters
     for i in range(1, 17):
         get_mean_variance(data, parameter_names, i)
